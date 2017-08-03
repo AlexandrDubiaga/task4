@@ -21,7 +21,9 @@ echo "<br>";
 <?php
 $conn = new Msql();
 $connect = $conn->getConn();
-$mysql = $conn->insert('MY_TEST','key,data')->values('hosting_max','user2')->exec("INSERT");
+$filds = array('key','data');
+$value = array('Hosting','Company');
+$mysql = $conn->insert('MY_TEST',$filds)->values('hosting_max',$value)->exec("INSERT");
 var_dump($mysql);
 /*$result = mysql_query("$mysql");
 while($row = mysql_fetch_array($result,MYSQL_ASSOC))
