@@ -4,7 +4,7 @@ class PosgSql extends SQL
     private $user;
     private $password;
     private $host;
-    private $dB;
+    protected $dB;
     private $conn;
     public function __construct()
     {
