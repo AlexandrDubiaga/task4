@@ -49,7 +49,7 @@ Class SQL
 			return ERROR_VAL;
 		}
 	}
-	public function insert($what, array $filds)
+	public function insert($what, ...$filds)
 	{
 		if(!empty($what))
 		{
@@ -61,9 +61,9 @@ Class SQL
 			return ERROR_VAL;
 		}
 	}
-	public function values(array $values)
+	public function values(...$values)
 	{
-		if(!empty($what))
+		if(!empty($values))
 		{
 			$this->valuesVal = "VALUES ($values) ";
 			return $this;
