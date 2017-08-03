@@ -10,11 +10,11 @@ Class SQL
 	private $deleteVal;
 	private $updateVal;
 	private $setVal;
-	public function select($what)
+	public function select(array $what)
 	{
 		if(!empty($what) && $what !== "*")
 		{
-			$this->selectVal = "Select `$what` ";
+			$this->selectVal = "Select '$what[0],$what[1]' ";
 			return $this;
 		}
 		else
