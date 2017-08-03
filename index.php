@@ -29,7 +29,7 @@ while($row = mysql_fetch_array($res,MYSQL_ASSOC))
 {
   echo $row['key']." ".$row['data']."<br>";
 }
-$value = array('solo','kolo');
+$value = array('alex','cardo');
 $mysql = $conn->insert('MY_TEST')->values($value)->exec("INSERT");
 mysql_query("$mysql");
 var_dump($mysql);
