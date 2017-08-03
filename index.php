@@ -21,7 +21,7 @@ echo "<br>";
 <?php
 $conn = new Msql();
 $connect = $conn->getConn();
-$value = array('sssssssssssss','ddddddddddddddd');
+$value = array('solo','kolo');
 $mysql = $conn->insert('MY_TEST')->values($value)->exec("INSERT");
 var_dump($mysql);
 /*$result = mysql_query("$mysql");
