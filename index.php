@@ -21,6 +21,13 @@ echo "<br>";
 <?php
 $conn = new Msql();
 $connect = $conn->getConn();
+$valuesMysql = array('key','data');
+$mysql = $conn->select($valuesMysql)->from('MY_TEST')->where('key','solo')->exec();
+$res = mysql_query('$mysql');
+while($row = mysql_fetch_array($res,MYSQL_ASSOC))
+{
+  echo $row['key']." ".$row['data']."<br>";
+}
 $value = array('solo','kolo');
 $mysql = $conn->insert('MY_TEST')->values($value)->exec("INSERT");
 mysql_query("$mysql");
