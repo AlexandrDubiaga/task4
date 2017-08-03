@@ -74,6 +74,34 @@ Class SQL
 		}
 	}
 	
+	public function update($what)
+	{
+		if(!empty($what))
+		{
+			$this->updateVal = "UPDATE `$what`  ";
+			return $this;
+		}
+		else
+		{
+			return ERROR_VAL;
+		}
+	}
+	
+	public function set(array $values)
+	{
+		if(!empty($values))
+		{
+			$this->setVal = "SET `key` = '$values[0]', `data` = '$values[1]'  ";
+			return $this;
+		}
+		else
+		{
+			return ERROR_VAL;
+		}
+	}
+	
+	
+	
 	
 	
 	
@@ -98,6 +126,15 @@ Class SQL
 			   	}else
 				{
 				 	$this->sql= $this->insertVal . $this->valuesVal;
+					return $this->sql;
+				 }
+			case 'UPDATE':	 
+				if(!isset($var) || empty($var))
+			   	{
+			   		return false;
+			   	}else
+				{
+				 	$this->sql= $this->updateVal . $this->setVal . . $this->whereVal;
 					return $this->sql;
 				 }
 			 
