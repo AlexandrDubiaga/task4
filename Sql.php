@@ -49,11 +49,60 @@ Class SQL
 			return ERROR_VAL;
 		}
 	}
-	
-	public function exec()
+	public function insert($what)
 	{
-		$this->sql= $this->selectVal . $this->fromVal . $this->whereVal;
-		return $this->sql;
+		if(!empty($what))
+		{
+			$this->insertVal = "INSERT INTO `$what` ";
+			return $this;
+		}
+		else
+		{
+			return ERROR_VAL;
+		}
+	}
+	public function values($what)
+	{
+		if(!empty($what))
+		{
+			$this->valuesVal = " `$what` ";
+			return $this;
+		}
+		else
+		{
+			return ERROR_VAL;
+		}
+	}
+	
+	
+	
+	
+	
+	public function exec($var)
+	{
+		switch($var)
+		{
+			case 'SELECT':
+				if(!isset($var) || empty($var) || $var == '*')
+			   	{
+			   		return false;
+			   	}else
+				{
+				 	$this->sql= $this->selectVal . $this->fromVal . $this->whereVal;
+					return $this->sql;
+				 }
+		 	case 'INSERT':	 
+				if(!isset($var) || empty($var))
+			   	{
+			   		return false;
+			   	}else
+				{
+				 	$this->sql= $this->insertVal . $this->valuesVal . $this->whereVal;
+					return $this->sql;
+				 }
+			 
+		}
+		
 	}
 	
 
