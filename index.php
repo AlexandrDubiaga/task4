@@ -23,7 +23,7 @@ $conn = new Msql();
 $connect = $conn->getConn();
 $filds = array('key','data');
 $value = array('Hosting','Company');
-$mysql = $conn->insert('MY_TEST',$filds)->values($value)->exec("INSERT");
+$mysql = $conn->insert('MY_TEST','$filds')->values('$value')->exec("INSERT");
 var_dump($mysql);
 /*$result = mysql_query("$mysql");
 while($row = mysql_fetch_array($result,MYSQL_ASSOC))
