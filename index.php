@@ -31,7 +31,7 @@ echo "<br>";
 <?php
 
 $valuesMysql = array('key','data');
-$mysql = $conn->select($valuesMysql)->from('MY_TEST')->where('key','solo')->exec("SELECT");
+$mysql = $conn->select($valuesMysql)->from('MY_TEST')->where('key','Connor')->exec("SELECT");
 $res = mysql_query("$mysql");
 
 while($row = mysql_fetch_array($res,MYSQL_ASSOC))
@@ -43,7 +43,7 @@ while($row = mysql_fetch_array($res,MYSQL_ASSOC))
 echo "<br>";
 echo "<br>";
 ?>
-<h1>UPDATE/h1><br>
+<h1>UPDATE</h1><br>
 <?php
 $updateData = array('Connor','Dallas');
 $update = $conn->update('MY_TEST')->set($updateData)->where('key','solo')->exec("UPDATE");
