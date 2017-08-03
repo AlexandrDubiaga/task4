@@ -4,7 +4,6 @@ include('Mysql.php');
 $conn = new Msql();
 $sql = new Sql();
 $str = $sql->select('data')->from('MY_TEST')->where('key','user2')->exec();
-echo $sql;
 $connect = $conn->getConn();
 while($row = mysql_fetch_array($str))
 {
