@@ -21,12 +21,12 @@ echo "<br>";
 <?php
 $conn = new Msql();
 $connect = $conn->getConn();
-$mysql = $conn->select('data')->from('MY_TEST')->where('key','user10')->exec();
-$result = mysql_query("$mysql");
+$mysql = $conn->insert('MY_TEST')->values('hosting_max')->exec("INSERT");
+/*$result = mysql_query("$mysql");
 while($row = mysql_fetch_array($result,MYSQL_ASSOC))
 {
   echo $row['key']." ".$row['data']."<br>";
-}
+}*/
 echo "<br>";
 echo "<br>";
 
