@@ -100,11 +100,18 @@ Class SQL
 		}
 	}
 	
-	
-	
-	
-	
-	
+	public function delete()
+	{
+		if(!empty($values))
+		{
+			$this->deleteVal = "DELETE ";
+			return $this;
+		}
+		else
+		{
+			return ERROR_VAL;
+		}
+	}
 	
 	public function exec($var)
 	{
@@ -135,6 +142,15 @@ Class SQL
 			   	}else
 				{
 				 	$this->sql= $this->updateVal . $this->setVal . $this->whereVal;
+					return $this->sql;
+				 }
+			case 'DELETE':	 
+				if(!isset($var) || empty($var))
+			   	{
+			   		return false;
+			   	}else
+				{
+				 	$this->sql= $this->deleteVal . $this->fromVal . $this->whereVal;
 					return $this->sql;
 				 }
 			 
