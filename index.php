@@ -8,7 +8,7 @@ $str = $sql->select('data')->from('MY_TEST')->where('key','user10')->exec();
 $result = mysql_query("$str");
 while($row = mysql_fetch_array($result))
 {
-  echo $row['key']." ".$row['data'];
+  echo $row['key']." ".$row['data']."<br>";
 }
 
 
