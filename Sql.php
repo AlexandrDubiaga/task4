@@ -65,7 +65,7 @@ Class SQL
 	{
 		if(!empty($what))
 		{
-			$this->valuesVal = " `$what` ";
+			$this->valuesVal = "VALUES `$what` ";
 			return $this;
 		}
 		else
