@@ -8,7 +8,7 @@ class Msql extends Sql
     private $conn;
     public function	 __construct(){
         $this->user = "user1";
-        $this->dB = "MY_TEST";
+        $this->dB = "user1";
         $this->host = "localhost";
         $this->password = "tuser1";
     }
