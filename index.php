@@ -23,7 +23,8 @@ $conn = new Msql();
 $connect = $conn->getConn();
 $valuesMysql = array('key','data');
 $mysql = $conn->select($valuesMysql)->from('MY_TEST')->where('key','solo')->exec("SELECT");
-$res = mysql_query('$mysql');
+var_dump($mysql);
+$res = mysql_query("$mysql");
 while($row = mysql_fetch_array($res,MYSQL_ASSOC))
 {
   echo $row['key']." ".$row['data']."<br>";
