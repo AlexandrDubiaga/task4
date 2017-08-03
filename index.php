@@ -1,6 +1,7 @@
 <?php
 include('Sql.php');
 include('Mysql.php');
+include('PosgSql.php');
 $conn = new Msql();
 $postgre = new PosgSql();
 $sql = new Sql();
