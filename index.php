@@ -17,7 +17,7 @@ $sql = new Sql();
 echo "<br>";
 echo "<br>";
 ?>
-
+<?php
 $value = array('alex','cardo');
 $mysql = $conn->insert('MY_TEST')->values($value)->exec("INSERT");
 mysql_query("$mysql");
