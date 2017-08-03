@@ -53,5 +53,8 @@ if($resUpdate)
 {
   echo "UPDATE";
 }
+  echo "<br>";
+echo "<br>";
+  var_dump($update);
 
 ?>
