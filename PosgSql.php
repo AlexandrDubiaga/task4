@@ -2,18 +2,18 @@
 class PosgSql extends SQL
 {
     private $user;
-    private $password;
+    private $pass;
     private $host;
     protected $db;
     private $conn;
     public function __construct()
     {
-        $this->host = 'localhost';
-        $this->db = 'user1';
-        $this->user = 'user1';
-        $this->password = 'user1z';
-        $this->conn = pg_connect("host=$host dbname=$db user=$user password=$password");
-        if (!$this->conn)
+        $host = "localhost";
+        $user = "user1";
+        $pass = "user1z";
+        $db = "user1";
+        $this->connection = pg_connect("host=$host dbname=$db user=$user password=$pass");
+        if (!$this->connection)
         {
             die("Could not open connection to database server");
         }else
