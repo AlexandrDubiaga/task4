@@ -134,7 +134,7 @@ Class SQL
 			   		return false;
 			   	}else
 				{
-				 	$this->sql= $this->updateVal . $this->setVal . . $this->whereVal;
+				 	$this->sql= $this->updateVal . $this->setVal . $this->whereVal;
 					return $this->sql;
 				 }
 			 
