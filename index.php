@@ -47,9 +47,9 @@ echo "<br>";
 <?php
 
 $updateData = array('Connor','Dallas');
-$mysql = $conn->update('MY_TEST')->set('MY_TEST')->where('key','solo')->exec("UPDATE");
-$res = mysql_query("$mysql");
-if($res)
+$update = $conn->update('MY_TEST')->set($updateData)->where('key','solo')->exec("UPDATE");
+$resUpdate = mysql_query("$update");
+if($resUpdate)
 {
   echo "UPDATE";
 }
