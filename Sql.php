@@ -53,7 +53,7 @@ Class SQL
 	{
 		if(!empty($what))
 		{
-			$this->insertVal = "INSERT INTO `$what` ($filds) ";
+			$this->insertVal = "INSERT INTO `$what` ($filds[0],$filds[1]) ";
 			return $this;
 		}
 		else
