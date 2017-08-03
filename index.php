@@ -18,6 +18,8 @@ echo "<br>";
 echo "<br>";
 ?>
 <?php
+$conn = new Msql();
+$connect = $conn->getConn();
 $value = array('alex','cardo');
 $mysql = $conn->insert('MY_TEST')->values($value)->exec("INSERT");
 mysql_query("$mysql");
@@ -27,8 +29,7 @@ echo "<br>";
 ?>
 <h1>Mysql</h1><br>
 <?php
-$conn = new Msql();
-$connect = $conn->getConn();
+
 $valuesMysql = array('key','data');
 $mysql = $conn->select($valuesMysql)->from('MY_TEST')->where('key','solo')->exec("SELECT");
 var_dump($mysql);
