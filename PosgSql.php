@@ -1,15 +1,19 @@
 <?php
 class PostgreSQL implements iWorkData
 {
-    protected $connection;
+    private $user;
+    private $password;
+    private $host;
+    private $dB;
+    private $conn;
     public function __construct()
     {
-        $host = "localhost";
-        $user = "user1";
-        $pass = "user1z";
-        $db = "user1";
-        $this->connection = pg_connect("host=$host dbname=$db user=$user password=$pass");
-        if (!$this->connection)
+        $this->host = "localhost";
+        $this->user = "user1";
+        $this->password = "user1z";
+        $this->dB = "user1";
+        $this->conn = pg_connect("host=$host dbname=$dB user=$user password=$password");
+        if (!$this->conn)
         {
             die("Could not open connection to database server");
         }else
