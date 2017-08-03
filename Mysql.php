@@ -1,5 +1,5 @@
 <?php
-class Msql extends Sql
+class Msql extends SQL
 {
     private $user;
     private $password;
