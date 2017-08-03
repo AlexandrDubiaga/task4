@@ -12,7 +12,7 @@ class PosgSql extends SQL
         $this->dB = 'user1';
         $this->user = 'user1';
         $this->password = 'user1z';
-        $this->conn = pg_connect("host=$host dbname="$dB" user=$user password=$password");
+        $this->conn = pg_connect("host=$host dbname=user1 user=$user password=$password");
         if (!$this->conn)
         {
             die("Could not open connection to database server");
