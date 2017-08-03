@@ -1,5 +1,5 @@
 <?php
-class PostgreSQL implements iWorkData
+class PostgreSQL extends SQL
 {
     private $user;
     private $password;
