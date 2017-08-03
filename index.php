@@ -12,7 +12,7 @@ $sql = new Sql();
 <?php
 //$postgre = new PosgSql();
 //$postGres = $postgre->select('data')->from('pg_test')->where('key','user10')->exec();
-$//result = pg_query("$postGres");
+//$result = pg_query("$postGres");
 
 echo "<br>";
 echo "<br>";
