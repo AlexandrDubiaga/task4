@@ -24,7 +24,7 @@ mysql_query("$mysql");
 
 echo "<br>";
 echo "<br>";
-
+?>
 <h1>Mysql</h1><br>
 <?php
 $conn = new Msql();
