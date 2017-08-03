@@ -97,7 +97,7 @@ Class SQL
 			   		return false;
 			   	}else
 				{
-				 	$this->sql= $this->insertVal . $this->valuesVal . $this->whereVal;
+				 	$this->sql= $this->insertVal . $this->valuesVal;
 					return $this->sql;
 				 }
 			 
