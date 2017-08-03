@@ -54,6 +54,17 @@ if($resUpdate)
 }
   echo "<br>";
   echo "<br>";
-  var_dump($update);
+ 
+
+?>
+
+<h3>DELETE</h3><br>
+<?php
+$delete = $conn->delete()->from('MY_TEST')->where('key','Connor')->exec("DELETE");
+$resDelete = mysql_query("$delete");
+if($resDelete)
+{
+  echo "Deleted";
+}
 
 ?>
