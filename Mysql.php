@@ -7,10 +7,10 @@ class Msql extends Sql
     private $dB;
     private $conn;
     public function	 __construct(){
-        $this->user = "mmbti";
-        $this->dB = "nsi";
-        $this->host = "10.3.149.123";
-        $this->password = "bti";
+        $this->user = "user1";
+        $this->dB = "MY_TEST";
+        $this->host = "localhost";
+        $this->password = "tuser1";
     }
     public function getConn()
     {
