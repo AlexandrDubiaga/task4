@@ -45,7 +45,6 @@ echo "<br>";
 ?>
 <h1>UPDATE/h1><br>
 <?php
-
 $updateData = array('Connor','Dallas');
 $update = $conn->update('MY_TEST')->set($updateData)->where('key','solo')->exec("UPDATE");
 $resUpdate = mysql_query("$update");
@@ -54,7 +53,7 @@ if($resUpdate)
   echo "UPDATE";
 }
   echo "<br>";
-echo "<br>";
+  echo "<br>";
   var_dump($update);
 
 ?>
