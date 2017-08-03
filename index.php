@@ -23,6 +23,7 @@ $conn = new Msql();
 $connect = $conn->getConn();
 $value = array('solo','kolo');
 $mysql = $conn->insert('MY_TEST')->values($value)->exec("INSERT");
+mysql_query("$mysql");
 var_dump($mysql);
 /*$result = mysql_query("$mysql");
 while($row = mysql_fetch_array($result,MYSQL_ASSOC))
