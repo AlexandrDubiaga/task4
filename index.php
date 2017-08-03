@@ -38,7 +38,7 @@ while($row = mysql_fetch_array($res,MYSQL_ASSOC))
 {
   echo $row['key']." ".$row['data']."<br>";
 }
-
+?>
 <?php
 echo "<br>";
 echo "<br>";
