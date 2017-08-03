@@ -65,7 +65,7 @@ Class SQL
 	{
 		if(!empty($values))
 		{
-			$this->valuesVal = "VALUES ($values) ";
+			$this->valuesVal = "VALUES ($values[0],$values[1]) ";
 			return $this;
 		}
 		else
