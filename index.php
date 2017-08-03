@@ -38,4 +38,20 @@ while($row = mysql_fetch_array($res,MYSQL_ASSOC))
 {
   echo $row['key']." ".$row['data']."<br>";
 }
+
+<?php
+echo "<br>";
+echo "<br>";
+?>
+<h1>UPDATE/h1><br>
+<?php
+
+$updateData = array('Connor','Dallas');
+$mysql = $conn->update('MY_TEST')->set('MY_TEST')->where('key','solo')->exec("UPDATE");
+$res = mysql_query("$mysql");
+if($res)
+{
+  echo "UPDATE";
+}
+
 ?>
