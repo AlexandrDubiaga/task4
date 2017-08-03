@@ -102,15 +102,10 @@ Class SQL
 	
 	public function delete()
 	{
-		if(!empty($values))
-		{
+		
 			$this->deleteVal = "DELETE ";
 			return $this;
-		}
-		else
-		{
-			return ERROR_VAL;
-		}
+		
 	}
 	
 	public function exec($var)
