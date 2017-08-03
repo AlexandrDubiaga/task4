@@ -9,9 +9,9 @@ class PosgSql extends SQL
     public function __construct()
     {
         $this->host = "localhost";
+        $this->dB = "user1";
         $this->user = "user1";
         $this->password = "user1z";
-        $this->dB = "user1";
         $this->conn = pg_connect("host=$host dbname=$dB user=$user password=$password");
         if (!$this->conn)
         {
