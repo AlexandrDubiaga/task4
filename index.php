@@ -13,10 +13,7 @@ $sql = new Sql();
 $postgre = new PosgSql();
 $postGres = $postgre->select('data')->from('pg_test')->where('key','user10')->exec();
 $result = pg_query("$postGres");
-while($row = pg_fetch_assoc($result))
-{
-  echo $row['key']." ".$row['data']."<br>";
-}
+
 echo "<br>";
 echo "<br>";
 ?>
