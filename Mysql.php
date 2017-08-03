@@ -14,9 +14,9 @@ class Msql extends SQL
     }
     public function getConn()
     {
-        $this->conn = mysql_connect($this->host, $this->user, $this->password);
+        mysql_connect($this->host, $this->user, $this->password);
         if (!$this->conn) { echo ("Error no connect!"); }
-        if( $this->conn->mysql_select_db($this->dB)) { echo "Connect to.".$this->dB.". good!"; }
+        if( $this->conn = mysql_select_db($this->dB)) { echo "Connect to.".$this->dB.". good!"; }
         else die ("Cant connect to db $this->dB!");
         return $this->conn;
     }
