@@ -2,6 +2,7 @@
 include('Sql.php');
 include('Mysql.php');
 $conn = new Msql();
+$postgre = new PosgSql();
 $sql = new Sql();
 $connect = $conn->getConn();
 $str = $sql->select('data')->from('MY_TEST')->where('key','user10')->exec();
