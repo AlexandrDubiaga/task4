@@ -1,5 +1,5 @@
 <?php
-class PostgreSQL extends SQL
+class PosgSql extends SQL
 {
     private $user;
     private $password;
