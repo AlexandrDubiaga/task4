@@ -10,9 +10,9 @@ $sql = new Sql();
 
 <h1>Postgres</h1><br>
 <?php
-//$postgre = new PosgSql();
-//$postGres = $postgre->select('data')->from('pg_test')->where('key','user10')->exec();
-//$result = pg_query("$postGres");
+$postgre = new PosgSql();
+$postGres = $postgre->select('data')->from('pg_test')->where('key','user10')->exec("SELECT");
+$result = pg_query("$postGres");
 
 echo "<br>";
 echo "<br>";
