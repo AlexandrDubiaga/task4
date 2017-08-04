@@ -14,7 +14,7 @@ Class SQL
 	{
 		if(!empty($what) && $what !== "*")
 		{
-			$this->selectVal = "Select `$what[0]`,`$what[1]` ";
+			$this->selectVal = "Select $what[0],$what[1] ";
 			return $this;
 		}
 		else
