@@ -120,7 +120,7 @@ Class SQL
 				{
 				 	$this->sql= $this->selectVal . $this->fromVal . $this->whereVal;
 					return $this->sql;
-				 }
+				 }break;
 		 	case 'INSERT':	 
 				if(!isset($var) || empty($var))
 			   	{
@@ -129,7 +129,7 @@ Class SQL
 				{
 				 	$this->sql= $this->insertVal . $this->valuesVal;
 					return $this->sql;
-				 }
+				 }break;
 			case 'UPDATE':	 
 				if(!isset($var) || empty($var))
 			   	{
@@ -138,7 +138,7 @@ Class SQL
 				{
 				 	$this->sql= $this->updateVal . $this->setVal . $this->whereVal;
 					return $this->sql;
-				 }
+				 }break;
 			case 'DELETE':	 
 				if(!isset($var) || empty($var))
 			   	{
@@ -147,7 +147,7 @@ Class SQL
 				{
 				 	$this->sql= $this->deleteVal . $this->fromVal . $this->whereVal;
 					return $this->sql;
-				 }
+				 }break;
 			 
 		}
 		
