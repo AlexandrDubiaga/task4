@@ -20,7 +20,7 @@ pg_query("$postInsertStr");*/
 <h1>Postgres Update</h1><br>
 <?php
 $updatePostgre = array('Connor','Dallas');
-$updatePg = $conn->update('pg_test')->set($updatePostgre)->where('key','user10')->exec("UPDATE");
+$updatePg = $postgre->update('pg_test')->set($updatePostgre)->where('key','user10')->exec("UPDATE");
 $pgUpdate = str_replace('`',' ',$updatePg);
 $resUpdatePg = pg_query("$pgUpdate");
 if($resUpdatePg)
