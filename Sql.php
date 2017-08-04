@@ -27,7 +27,7 @@ Class SQL
 	{
 		if(!empty($table))
 		{
-			$this->fromVal = "from `$table` ";
+			$this->fromVal = "from $table ";
 			return $this;
 		}
 		else
