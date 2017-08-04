@@ -7,6 +7,7 @@ include('PosgSql.php');
 $sql = new Sql();
 
 $postgre = new PosgSql();
+
 ?>
 <h1>Postgres Insert</h1><br>
 <?php
@@ -15,6 +16,18 @@ $value = array('user10','zolo');
 $pgInsert = $postgre->insert('pg_test')->values($value)->exec("INSERT");
 $postInsertStr = str_replace('`',' ',$pgInsert);
 pg_query("$postInsertStr");*/
+?>
+<h1>Postgres Update</h1><br>
+<?php
+$updatePostgre = array('Connor','Dallas');
+$updatePg = $conn->update('pg_test')->set($updatePostgre)->where('key','user10')->exec("UPDATE");
+$pgUpdate = str_replace('`',' ',$updatePg);
+$resUpdatePg = pg_query("$pgUpdate");
+if($resUpdatePg)
+{
+  echo "UPDATE";
+}*/
+
 ?>
 
 <h1>Postgres Select</h1><br>
