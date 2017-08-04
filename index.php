@@ -34,7 +34,7 @@ if($resUpdatePg)
 <?php
 
 $valuesPoStgre = array('key','data');
-$postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','user10')->exec("SELECT");
+$postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','Connor')->exec("SELECT");
 $postGresStr = str_replace('`',' ',$postGres);
 $result = pg_query("$postGresStr");
 while($row = pg_fetch_array($result))
