@@ -62,11 +62,11 @@ if($resUpdate)
 
 <h3>DELETE</h3><br>
 <?php
-/*$delete = $conn->delete()->from('MY_TEST')->where('key','Connor')->exec("DELETE");
+$delete = $conn->delete()->from('MY_TEST')->where('key','alex')->exec("DELETE");
 $resDelete = mysql_query("$delete");
 if($resDelete)
 {
   echo "Deleted";
 }
-*/
+
 ?>
