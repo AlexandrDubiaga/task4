@@ -12,7 +12,7 @@ $sql = new Sql();
 <?php
 $postgre = new PosgSql();
 $valuesPoStgre = array('key','data');
-$postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','user10')->exec("SELECT"));
+$postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','user10')->exec("SELECT");
 $x = str_replace('`',' ',$postGres);
 $result = pg_query("$x");
 var_dump($x);
