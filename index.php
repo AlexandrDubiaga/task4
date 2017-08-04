@@ -20,8 +20,8 @@ echo "<br>";
 echo "<br>";
 ?>
 <?php
-/*$conn = new Msql();
-$connect = $conn->getConn();
+$conn = new Msql();
+/*$connect = $conn->getConn();
 $value = array('alex','cardo');
 $mysql = $conn->insert('MY_TEST')->values($value)->exec("INSERT");
 mysql_query("$mysql");*/
