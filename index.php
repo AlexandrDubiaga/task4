@@ -16,10 +16,10 @@ $postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','user
 $x = str_replace('`',' ',$postGres);
 $result = pg_query("$x");
 var_dump($x);
-/*while($row = pg_fetch_array($result,MYSQL_ASSOC))
+while($row = pg_fetch_array($result))
 {
   echo $row['key']." ".$row['data']."<br>";
-}*/
+}
 
 echo "<br>";
 echo "<br>";
