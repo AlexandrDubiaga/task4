@@ -26,7 +26,7 @@ $resUpdatePg = pg_query("$pgUpdate");
 if($resUpdatePg)
 {
   echo "UPDATE";
-}*/
+}
 
 ?>
 
