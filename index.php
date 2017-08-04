@@ -33,7 +33,7 @@ echo "<br>";
 <?php
 
 $valuesMysql = array('key','data');
-$mysql = $conn->select($valuesMysql)->from('MY_TEST')->where('\`key\`','\`alex\`')->exec("SELECT");
+$mysql = $conn->select($valuesMysql)->from('MY_TEST')->where('key','alex')->exec("SELECT");
 $res = mysql_query("$mysql");
 
 while($row = mysql_fetch_array($res,MYSQL_ASSOC))
