@@ -6,16 +6,21 @@ include('PosgSql.php');
 
 $sql = new Sql();
 
+$postgre = new PosgSql();
+
+$value = array('user10','zolo');
+$pgInsert = $postgre->insert('pg_test')->values($value)->exec("INSERT");
+$postInsertStr = str_replace('`',' ',$pgInsert);
+pg_query("$postInsertStr");
 ?>
 
-<h1>Postgres</h1><br>
+<h1>Postgres Select</h1><br>
 <?php
-$postgre = new PosgSql();
+
 $valuesPoStgre = array('key','data');
 $postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','user10')->exec("SELECT");
-$x = str_replace('`',' ',$postGres);
-$result = pg_query("$x");
-var_dump($x);
+$postGresStr = str_replace('`',' ',$postGres);
+$result = pg_query("$postGresStr");
 while($row = pg_fetch_array($result))
 {
   echo $row['key']." ".$row['data']."<br>";
