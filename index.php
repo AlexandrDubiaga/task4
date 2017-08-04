@@ -13,7 +13,7 @@ $sql = new Sql();
 $postgre = new PosgSql();
 $valuesPoStgre = array('key','data');
 $postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','user10')->exec("SELECT");
-//$x = str_replace('`',' ',$postGres);
+$x = str_replace('`',' ',$postGres);
 $result = pg_query("$x");
 var_dump($x);
 while($row = pg_fetch_array($result))
@@ -37,8 +37,8 @@ echo "<br>";
 <h1>Mysql</h1><br>
 <?php
 
-$valuesMysql = array('`key`','`data`');
-$mysql = $conn->select($valuesMysql)->from('MY_TEST')->where('`key`','alex')->exec("SELECT");
+$valuesMysql = array('key','data');
+$mysql = $conn->select($valuesMysql)->from('MY_TEST')->where('key','alex')->exec("SELECT");
 $res = mysql_query("$mysql");
 
 while($row = mysql_fetch_array($res,MYSQL_ASSOC))
