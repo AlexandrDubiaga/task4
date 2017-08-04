@@ -14,7 +14,7 @@ Class SQL
 	{
 		if(!empty($what) && $what !== "*")
 		{
-			$this->selectVal = "Select $what[0],$what[1] ";
+			$this->selectVal = "Select `$what[0]`,`$what[1]` ";
 			return $this;
 		}
 		else
@@ -41,7 +41,7 @@ Class SQL
 		if(!empty($key) && !empty($values))
 		{
 			
-			$this->whereVal = "where $key = '$values' ";
+			$this->whereVal = "where `$key` = '$values' ";
 			return $this;
 		}
 		else
@@ -53,7 +53,7 @@ Class SQL
 	{
 		if(!empty($what))
 		{
-			$this->insertVal = "INSERT INTO $what ";
+			$this->insertVal = "INSERT INTO `$what` ";
 			return $this;
 		}
 		else
@@ -78,7 +78,7 @@ Class SQL
 	{
 		if(!empty($what))
 		{
-			$this->updateVal = "UPDATE $what  ";
+			$this->updateVal = "UPDATE `$what`  ";
 			return $this;
 		}
 		else
@@ -91,7 +91,7 @@ Class SQL
 	{
 		if(!empty($values))
 		{
-			$this->setVal = "SET key = '$values[0]', data = '$values[1]'  ";
+			$this->setVal = "SET `key` = '$values[0]', data = '$values[1]'  ";
 			return $this;
 		}
 		else
