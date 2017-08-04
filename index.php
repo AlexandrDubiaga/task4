@@ -7,11 +7,14 @@ include('PosgSql.php');
 $sql = new Sql();
 
 $postgre = new PosgSql();
-
+?>
+<h1>Postgres Insert</h1><br>
+<?php
+/*
 $value = array('user10','zolo');
 $pgInsert = $postgre->insert('pg_test')->values($value)->exec("INSERT");
 $postInsertStr = str_replace('`',' ',$pgInsert);
-pg_query("$postInsertStr");
+pg_query("$postInsertStr");*/
 ?>
 
 <h1>Postgres Select</h1><br>
