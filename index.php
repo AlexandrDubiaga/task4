@@ -55,10 +55,6 @@ if($resDeletePg)
   echo "Deleted";
 }
 
-
-
-
-<?php
 $conn = new Msql();
 $connect = $conn->getConn();
 /*$value = array('alex','cardo');
