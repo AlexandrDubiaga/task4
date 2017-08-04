@@ -12,7 +12,8 @@ $sql = new Sql();
 <?php
 $postgre = new PosgSql();
 $valuesPoStgre = array('key','data');
-$x = pg_escape_string($postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','user10')->exec("SELECT"));
+$postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','user10')->exec("SELECT"));
+$x = str_replace('`',' ',$postGres);
 $result = pg_query("$x");
 var_dump($x);
 /*while($row = pg_fetch_array($result,MYSQL_ASSOC))
