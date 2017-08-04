@@ -52,7 +52,7 @@ echo "<br>";
 ?>
 <h1>UPDATE</h1><br>
 <?php
-/*$updateData = array('Connor','Dallas');
+$updateData = array('Connor','Dallas');
 $update = $conn->update('MY_TEST')->set($updateData)->where('key','solo')->exec("UPDATE");
 $resUpdate = mysql_query("$update");
 if($resUpdate)
@@ -62,16 +62,16 @@ if($resUpdate)
   echo "<br>";
   echo "<br>";
  
-*/
+
 ?>
 
 <h3>DELETE</h3><br>
 <?php
-/*$delete = $conn->delete()->from('MY_TEST')->where('key','alex')->exec("DELETE");
+$delete = $conn->delete()->from('MY_TEST')->where('key','alex')->exec("DELETE");
 $resDelete = mysql_query("$delete");
 if($resDelete)
 {
   echo "Deleted";
 }
-*/
+
 ?>
