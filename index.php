@@ -14,10 +14,11 @@ $postgre = new PosgSql();
 $valuesPoStgre = array('key','data');
 $x = pg_escape_string($postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','user10')->exec("SELECT"));
 $result = pg_query("$x");
-while($row = pg_fetch_array($result,MYSQL_ASSOC))
+var_dump($x);
+/*while($row = pg_fetch_array($result,MYSQL_ASSOC))
 {
   echo $row['key']." ".$row['data']."<br>";
-}
+}*/
 
 echo "<br>";
 echo "<br>";
