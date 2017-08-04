@@ -45,6 +45,19 @@ while($row = pg_fetch_array($result))
 echo "<br>";
 echo "<br>";
 ?>
+<h3>DELETE Postgres</h3><br>
+<?php
+$deletePg = $postgre->delete()->from('pg_test')->where('key','Connor')->exec("DELETE");
+$delPg = str_replace('`',' ',$deletePg);
+$resDeletePg = pg_query("$delPg");
+if($resDeletePg)
+{
+  echo "Deleted";
+}
+
+
+
+
 <?php
 $conn = new Msql();
 $connect = $conn->getConn();
