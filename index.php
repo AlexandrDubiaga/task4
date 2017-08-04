@@ -10,11 +10,11 @@ $sql = new Sql();
 
 <h1>Postgres</h1><br>
 <?php
-$postgre = new PosgSql();
+/*$postgre = new PosgSql();
 $valuesPoStgre = array('key','data');
 $postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','user10')->exec("SELECT");
 var_dump($postGres);
-$result = pg_query("$postGres");
+$result = pg_query("$postGres");*/
 
 echo "<br>";
 echo "<br>";
