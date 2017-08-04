@@ -41,7 +41,7 @@ Class SQL
 		if(!empty($key) && !empty($values))
 		{
 			
-			$this->whereVal = "where `$key` = '$values' ";
+			$this->whereVal = "where $key = '$values' ";
 			return $this;
 		}
 		else
