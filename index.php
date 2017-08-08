@@ -1,107 +1,118 @@
 <?php
-include('Sql.php');
-include('Mysql.php');
-include('PosgSql.php');
+include('libs/SQL.php');
+include('libs/Mysql.php');
+include('libs/PostgreSql.php');
+include ('config.php');
 
-
-$sql = new Sql();
-
-$postgre = new PosgSql();
-
-?>
-<h1>Postgres Insert</h1><br>
-<?php
-/*
-$value = array('user10','zolo');
-$pgInsert = $postgre->insert('pg_test')->values($value)->exec("INSERT");
-$postInsertStr = str_replace('`',' ',$pgInsert);
-pg_query("$postInsertStr");*/
-?>
-<h1>Postgres Update</h1><br>
-<?php
-$updatePostgre = array('Connor','Dallas');
-$updatePg = $postgre->update('pg_test')->set($updatePostgre)->where('key','user10')->exec("UPDATE");
-$pgUpdate = str_replace('`',' ',$updatePg);
-$resUpdatePg = pg_query("$pgUpdate");
-if($resUpdatePg)
+$sql = new SQL();
+$conn = new Mysql();
+$postgre = new PostgreSql();
+$connPostgreSql = $postgre->getConnect();
+if($connPostgreSql)
 {
-  echo "UPDATE";
+    $goodConnectToPostgreSql = GOOD_CONNECT_POSTGRESQL;
 }
-
-?>
-
-<h1>Postgres Select</h1><br>
-<?php
-
-$valuesPoStgre = array('key','data');
-$postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','Connor')->exec("SELECT");
-$postGresStr = str_replace('`',' ',$postGres);
-$result = pg_query("$postGresStr");
-while($row = pg_fetch_array($result))
-{
-  echo $row['key']." ".$row['data']."<br>";
-}
-
-echo "<br>";
-echo "<br>";
-?>
-<h3>DELETE Postgres</h3><br>
-<?php
-$deletePg = $postgre->delete()->from('pg_test')->where('key','Connor')->exec("DELETE");
-$delPg = str_replace('`',' ',$deletePg);
-$resDeletePg = pg_query("$delPg");
-if($resDeletePg)
-{
-  echo "Deleted";
-}
-
-$conn = new Msql();
 $connect = $conn->getConn();
-/*$value = array('alex','cardo');
-$mysql = $conn->insert('MY_TEST')->values($value)->exec("INSERT");
-mysql_query("$mysql");
-*/
-echo "<br>";
-echo "<br>";
-?>
-<h1>Mysql</h1><br>
-<?php
-
-$valuesMysql = array('key','data');
-$mysql = $conn->select($valuesMysql)->from('MY_TEST')->where('key','alex')->exec("SELECT");
-$res = mysql_query("$mysql");
-
-while($row = mysql_fetch_array($res,MYSQL_ASSOC))
+if($connect)
 {
-  echo $row['key']." ".$row['data']."<br>";
+    $goodConnectToMySql = GOOD_CONNECT_MYSQL;
 }
-?>
-<?php
-echo "<br>";
-echo "<br>";
-?>
-<h1>UPDATE</h1><br>
-<?php
-/*$updateData = array('Connor','Dallas');
-$update = $conn->update('MY_TEST')->set($updateData)->where('key','solo')->exec("UPDATE");
-$resUpdate = mysql_query("$update");
-if($resUpdate)
+switch(true)
 {
-  echo "UPDATE";
-}*/
-  echo "<br>";
-  echo "<br>";
- 
-
-?>
-
-<h3>DELETE</h3><br>
-<?php
-/*$delete = $conn->delete()->from('MY_TEST')->where('key','alex')->exec("DELETE");
-$resDelete = mysql_query("$delete");
-if($resDelete)
-{
-  echo "Deleted";
+    case isset($_GET['InsertPosetges']):
+    {
+        $value = array('user2','postgreSQL');
+        $pgInsert = $postgre->insert('pg_test')->values($value)->exec();
+        if(!$pgInsert)
+        {
+            $errorPgInsert = ERROR_PG_INSERT;
+        }else
+        {
+            $goodPgInsert = GOOD_PG_INSERT;
+        }
+        break;
+    }
+    case isset($_GET['SelectPosetges']):
+    {
+        $valuesPoStgre = array('key','data');
+        $postGres = $postgre->select($valuesPoStgre)->from('pg_test')->where('key','user2')->exec();
+        if(!$postGres)
+        {
+            $errorPgSelect = ERROR_PG_SELECT;
+        }else
+        {
+            $goodPgSelect = GOOD_PG_SELECT;
+        }
+        break;
+    }
+    case isset($_GET['UpdatePosetges']):
+    {
+        $updatePostgre = array('user22','postgreSQL2');
+        $updatePg = $postgre->update('pg_test')->set($updatePostgre)->where('key','user2')->exec();
+        if(!$updatePg)
+        {
+            $errorPgUpdate = ERROR_PG_UPDATE;
+        }else
+        {
+            $goodPgUpdate = GOOD_PG_UPDATE;
+        }
+        break;
+    }
+    case isset($_GET['DeletePosetges']): {
+        $deletePg = $postgre->delete()->from('pg_test')->where('key', 'user2')->exec();
+        if (!$deletePg) {
+            $errorPgDelete = ERROR_PG_DELETE;
+        } else {
+            $goodPgDelete = GOOD_PG_DELETE;
+        }
+        break;
+    }
 }
-*/
+
+switch (true)
+{
+    case isset($_GET['InsertMySql']):
+        $value = array('user2','mysql');
+        $mysqlInsert = $conn->insert('MY_TEST')->values($value)->exec();
+        if(!$mysqlInsert)
+        {
+            $errorMySqlInsert = ERROR_MYSQL_INSERT;
+        }else{
+            $goodMySqlInsert = GOOD_MYSQL_INSERT;
+        }
+        break;
+    case isset($_GET['SelectMySql']):
+        $valuesMysql = array('key','data');
+        $mysql = $conn->select($valuesMysql)->from('MY_TEST')->where('key','user2')->exec();
+        if(!$mysql)
+        {
+            $errorMySqlSelect = ERROR_MYSQL_SELECT;
+        }else
+        {
+            $goodMySqlSelect = GOOD_MYSQL_SELECT;
+        }
+        break;
+    case isset($_GET['UpdateMySql']):
+        $updateData = array('user22','mysql');
+        $update = $conn->update('MY_TEST')->set($updateData)->where('key','user2')->exec();
+        if(!$update)
+        {
+            $errorMySqlUpdate = ERROR_MYSQL_UPDATE;
+        }else
+        {
+            $goodMySqlUpdate = GOOD_MYSQL_UPDATE;
+        }
+        break;
+    case isset($_GET['DeleteMySql']):
+        $delete = $conn->delete()->from('MY_TEST')->where('key','user2')->exec();
+        if(!$delete)
+        {
+            $errorMySqlDelete = ERROR_MYSQL_DELETE;
+        }else
+        {
+            $goodMySqlDelete = GOOD_MYSQL_DELETE;
+        }
+        break;
+}
+include ('template/index.php');
 ?>
