@@ -5,18 +5,14 @@ include('libs/PostgreSql.php');
 include ('config.php');
 
 $sql = new SQL();
-$conn = new Mysql();
+
 $postgre = new PostgreSql();
 $connPostgreSql = $postgre->getConnect();
 if($connPostgreSql)
 {
     $goodConnectToPostgreSql = GOOD_CONNECT_POSTGRESQL;
 }
-$connect = $conn->getConn();
-if($connect)
-{
-    $goodConnectToMySql = GOOD_CONNECT_MYSQL;
-}
+
 switch(true)
 {
     case isset($_GET['InsertPosetges']):
@@ -68,7 +64,12 @@ switch(true)
         break;
     }
 }
-
+$conn = new Mysql();
+$connect = $conn->getConn();
+if($connect)
+{
+    $goodConnectToMySql = GOOD_CONNECT_MYSQL;
+}
 switch (true)
 {
     case isset($_GET['InsertMySql']):
