@@ -35,13 +35,13 @@ class PostgreSql extends SQL
                 {
                     return true;
                 }
-            } catch (Exception $z)
+            } catch (Exception $dbExeption)
             {
-                echo $z->getMessage();
+                echo $dbExeption->getMessage(), "\n";
             }
-        } catch (Exception $s)
+        } catch (Exception $connectExeption)
         {
-            echo $s->getMessage();
+            echo $connectExeption->getMessage(), "\n";
         }
         return $this->connection;
     }
@@ -53,54 +53,30 @@ class PostgreSql extends SQL
             if (!$this->connection)
             {
                 throw new Exception('Cant connect to postgreSQL');
-            }else
+            } else
             {
                 $resStr = parent::exec();
-                try
-                {
-                    if(empty($resStr) && !isset($resStr) )
+                $postInsertStr = str_replace('`', ' ', $resStr);
+                $res = pg_query($postInsertStr);
+                try {
+                    if (!$res || empty($res) || !isset($res))
                     {
-                        throw new Exception('resource string postgreSQL Error');
-                    }else
+                        throw new Exception('pg_query result error');
+                    } else
                     {
-                        $postInsertStr = str_replace('`', ' ', $resStr);
-                        $res = pg_query($postInsertStr);
-                        try
+                        while ($row[] = pg_fetch_array($res))
                         {
-                            if(!$res || empty($res) || !isset($res))
-                            {
-                                throw new Exception('pg_query result error');
-                            }else
-                            {
-                                while ($row[] = pg_fetch_array($res))
-                                {
-                                }
-                                try{
-                                    if(empty($row))
-                                    {
-                                        throw new Exception('result pg_fetch_array  error, empty $row');
-                                    }else
-                                    {
-                                        return $row;
-                                    }
-                                }catch (Exception $x)
-                                {
-                                    echo $x->getMessage();
-                                }
-                            }
-                        }catch (Exception $ex)
-                        {
-                            echo $ex->getMessage();
                         }
+                        return $row;
                     }
-                }catch (Exception $x)
+                } catch (Exception $parentResultStringExeption)
                 {
-                    echo $x->getMessage();
+                    echo $parentResultStringExeption->getMessage(), "\n";
                 }
             }
-        }catch (Exception $c)
+        }catch(Exception $connectExeption)
         {
-            echo $c->getMessage();
+            echo $connectExeption->getMessage(), "\n";
         }
     }
 }

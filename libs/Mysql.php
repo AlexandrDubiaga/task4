@@ -6,7 +6,8 @@ class Mysql extends SQL
     private $host;
     private $dB;
     private $conn;
-    public function	 __construct(){
+    public function	 __construct()
+    {
         $this->user = "user1";
         $this->dB = "user1";
         $this->host = "localhost";
@@ -32,12 +33,13 @@ class Mysql extends SQL
                     {
                         return true;
                     }
-                }catch (Exception $x)
+                }catch (Exception $mysqlSelectDbExeption)
                 {
-                    echo 'Throw Exeptions: ',  $x->getMessage(), "\n";
+                    echo $mysqlSelectDbExeption->getMessage(), "\n";
                 }
-            }catch (Exception $e) {
-                echo 'Throw Exeptions: ',  $e->getMessage(), "\n";
+            }catch (Exception $connectExeption)
+            {
+                echo $connectExeption->getMessage(), "\n";
             }
         return $this->conn;
     }
@@ -45,7 +47,7 @@ class Mysql extends SQL
     {
         try
         {
-            if(!$this->conn)
+            if (!$this->conn)
             {
                 throw new Exception('Cant connect to mysql');
             }else
@@ -53,60 +55,38 @@ class Mysql extends SQL
                 $res = parent::exec();
                 try
                 {
-                    if(!$res || empty($res) || !isset($res))
+                    if (!$res || empty($res) || !isset($res))
                     {
                         throw new Exception('mysql result string error');
-                    }else
+                    } else
                     {
-                        if($this->selectVal)
+                        if ($this->selectVal)
                         {
-                            $result =  mysql_query($res);
-                            try
+                            $result = mysql_query($res);
+                            while ($row[] = mysql_fetch_array($result))
                             {
-                                if(!$result || empty($result) || !isset($result))
-                                {
-                                    throw new Exception('mysql_query result error');
-                                }else
-                                {
-                                    while ($row[] = mysql_fetch_array($result))
-                                    {
-                                    }
-                                    try{
-                                        if(empty($row))
-                                        {
-                                            throw new Exception('result mysql_fetch_array  error, empty $row');
-                                        }else
-                                        {
-                                            return $row;
-                                        }
-                                    }catch (Exception $x)
-                                    {
-                                        echo $x->getMessage();
-                                    }
-                                }
-                            }catch (Exception $v)
-                            {
-                                echo $v->getMessage();
                             }
-                        }else if($this->insertVal)
+                            return $row;
+                        }else if ($this->insertVal)
                         {
                             mysql_query($res);
-                        }else if($this->updateVal)
+                        }else if ($this->updateVal)
                         {
                             mysql_query($res);
-                        }else if($this->deleteVal)
+                        }else if ($this->deleteVal)
                         {
                             mysql_query($res);
                         }
                     }
-                }catch (Exception $x)
+                }catch (Exception $parentResultStringExeption)
                 {
-                    echo $x->getMessage();
+                    echo $parentResultStringExeption->getMessage(), "\n";
                 }
             }
-        }catch (Exception $e)
+        }catch (Exception $connectExeption)
         {
-            echo 'Throw Exeptions: ',  $e->getMessage(), "\n";
+            echo $connectExeption->getMessage(), "\n";
         }
     }
 }
+
