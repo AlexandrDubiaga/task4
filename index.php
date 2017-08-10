@@ -1,5 +1,5 @@
 <?php
-include('libs/SQL.php');
+include('libs/Sql.php');
 include('libs/Mysql.php');
 include('libs/PostgreSql.php');
 include ('config.php');
